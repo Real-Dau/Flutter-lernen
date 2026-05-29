@@ -1,171 +1,104 @@
 # Visual Summary - 02 Container
 
-> Ziel: Du sollst `Container`, `margin`, `padding` und `decoration` nicht nur lesen, sondern sehen können.
+> Für Layout-Themen wie `margin` und `padding` nutzen wir ab hier **echte SVG-Diagramme**, damit man Boxen, Abstände und Ebenen wirklich sieht.
 
 ---
 
-## 1. Container als Box
+## 1. Margin vs Padding als echte Box-Grafik
 
-```text
-+--------------------------------------+
-| Container                            |
-|                                      |
-|  Hier kann ein child drin liegen     |
-|                                      |
-+--------------------------------------+
-```
+<img src="./assets/container_margin_padding.svg" alt="Visualisierung eines Containers mit margin außen, padding innen und Child in der Mitte" width="980">
 
-Ein `Container` ist eine Box. Diese Box kann selbst gestaltet werden und ein anderes Widget enthalten.
+### So liest du die Grafik
 
----
+- **graue Fläche** = Umgebung / andere Widgets / Bildschirm
+- **orange Box** = der eigentliche `Container`
+- **orange markierte Strecke außen** = `margin`
+- **blaue Fläche innen** = `padding`
+- **weiße Box in der Mitte** = `child`, also z. B. `Text`, `Icon` oder ein anderes Widget
 
-## 2. Margin vs Padding
+### Wichtigster Punkt
 
-```text
-Andere Widgets / Bildschirm
-
-<---------------------- margin ---------------------->
-
-+----------------------------------------------------+
-| Container-Rand                                     |
-|                                                    |
-|   <---------------- padding ------------------->   |
-|                                                    |
-|          +-------------------------------+         |
-|          | child, z. B. Text             |         |
-|          +-------------------------------+         |
-|                                                    |
-+----------------------------------------------------+
-```
-
-### Erklärung
-
-| Bereich | Bedeutung |
-|---|---|
-| `margin` | Abstand außerhalb vom Container |
-| Container-Rand | die eigentliche Box |
-| `padding` | Abstand innerhalb vom Container |
-| `child` | Inhalt des Containers |
+- `margin` schafft **Platz außerhalb** des Containers
+- `padding` schafft **Platz innerhalb** des Containers
 
 ---
 
-## 3. Pfeile als Datenbild
-
-```mermaid
-flowchart LR
-    A[Nachbar Widget] -- Abstand außen: margin --> B[Container]
-    B -- Abstand innen: padding --> C[Child Widget]
-```
-
----
-
-## 4. So liest du diesen Code visuell
+## 2. Das gleiche Konzept direkt am Code
 
 ```dart
 Container(
-  margin: EdgeInsets.all(32),
-  padding: EdgeInsets.all(24),
+  margin: const EdgeInsets.all(32),
+  padding: const EdgeInsets.all(24),
   color: Colors.orange,
-  child: Text('Hallo'),
+  child: const Text('Hallo'),
 )
 ```
 
-Wird im Kopf zu:
+### Was davon wo wirkt
 
-```text
-32 Pixel Abstand zur Außenwelt
-
-+----------------------------------+
-| orangener Container              |
-|                                  |
-| 24 Pixel Abstand nach innen      |
-|                                  |
-|     Hallo                        |
-|                                  |
-+----------------------------------+
-```
-
----
-
-## 5. Padding ändert den Inhalt
-
-```text
-Ohne Padding:
-+------------+
-|Text        |
-+------------+
-
-Mit Padding:
-+------------+
-|            |
-|   Text     |
-|            |
-+------------+
-```
-
-`padding` bewegt nicht die Box. Es bewegt den Inhalt **in** der Box.
-
----
-
-## 6. Margin ändert die Position der Box
-
-```text
-Ohne Margin:
-+----------++----------+
-| Box A    || Box B    |
-+----------++----------+
-
-Mit Margin:
-+----------+      +----------+
-| Box A    |      | Box B    |
-+----------+      +----------+
-```
-
-`margin` bewegt nicht den Text im Container. Es schafft Platz **um** den Container herum.
-
----
-
-## 7. Decoration erweitert die Box
-
-```text
-Container
-+----------------------------------+
-| BoxDecoration                    |
-| - color                          |
-| - borderRadius                   |
-| - boxShadow                      |
-| - border                         |
-+----------------------------------+
-```
-
-```mermaid
-flowchart TD
-    A[Container] --> B[Größe: width / height]
-    A --> C[Abstand außen: margin]
-    A --> D[Abstand innen: padding]
-    A --> E[Aussehen: decoration]
-    E --> F[Farbe]
-    E --> G[Runde Ecken]
-    E --> H[Schatten]
-```
-
----
-
-## 8. Entscheidungshilfe
-
-| Du willst... | Dann nutze... |
+| Code | Sichtbare Wirkung |
 |---|---|
-| Text weg vom Rand | `padding` |
-| Box weg von anderen Widgets | `margin` |
-| Box breiter machen | `width` |
-| Box höher machen | `height` |
-| runde Ecken | `decoration: BoxDecoration(borderRadius: ...)` |
-| Schatten | `boxShadow` |
+| `margin: EdgeInsets.all(32)` | Die ganze Box bekommt außen Luft |
+| `padding: EdgeInsets.all(24)` | Der Inhalt rückt von der Box-Grenze weg |
+| `color: Colors.orange` | Die Box bekommt eine Hintergrundfarbe |
+| `child: Text('Hallo')` | Der Text ist der Inhalt der Box |
 
 ---
 
-## 9. Wichtigster Merksatz
+## 3. Decoration als echte Grafik
 
-> `margin` ist Abstand außerhalb der Box. `padding` ist Abstand innerhalb der Box.
+<img src="./assets/container_decoration.svg" alt="Visualisierung von BoxDecoration mit Farbe, runden Ecken und Schatten" width="980">
 
-Wenn du das verstehst, verstehst du einen riesigen Teil von Flutter-Layout.
+### So liest du die Grafik
+
+- **violette Box** = sichtbarer Container
+- **runde Ecken** = `borderRadius`
+- **grauer Schatten dahinter** = `boxShadow`
+- **Farbe der Box** = `color` innerhalb von `BoxDecoration`
+
+---
+
+## 4. Wann nehme ich was?
+
+| Du willst... | Dann brauchst du... |
+|---|---|
+| Abstand zur Außenwelt | `margin` |
+| Abstand vom Inhalt zum Rand | `padding` |
+| Farbe, runde Ecken, Schatten | `decoration: BoxDecoration(...)` |
+| nur eine einfache Hintergrundfarbe | `color` |
+
+---
+
+## 5. Typischer Anfängerfehler
+
+Falsch oder zumindest problematisch:
+
+```dart
+Container(
+  color: Colors.blue,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(16),
+  ),
+)
+```
+
+Besser:
+
+```dart
+Container(
+  decoration: BoxDecoration(
+    color: Colors.blue,
+    borderRadius: BorderRadius.circular(16),
+  ),
+)
+```
+
+### Warum?
+
+Wenn `decoration` das Aussehen steuert, sollte die Farbe meistens **dort** mit rein, damit alles zusammen definiert ist.
+
+---
+
+## 6. Merksatz
+
+> `margin` bewegt die Box nach außen weg. `padding` bewegt den Inhalt nach innen weg.

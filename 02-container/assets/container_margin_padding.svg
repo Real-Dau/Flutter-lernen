@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="title desc">
+  <title id="title">Container: Margin und Padding</title>
+  <desc id="desc">Visualisierung von margin außen, Container, padding innen und child.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#0f172a"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#64748b" flood-opacity="0.25"/></filter>
+  </defs>
+  <rect width="1000" height="650" fill="#f8fafc"/>
+  <text x="60" y="60" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">Container richtig sehen: margin außen, padding innen</text>
+
+  <rect x="40" y="95" width="920" height="500" rx="28" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="60" y="130" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#334155">Umgebung / andere Widgets / Bildschirm</text>
+
+  <rect x="180" y="185" width="640" height="300" rx="26" fill="#fff7ed" stroke="#f97316" stroke-width="5" filter="url(#shadow)"/>
+  <text x="500" y="225" text-anchor="middle" font-size="27" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#9a3412">Container</text>
+  <text x="500" y="253" text-anchor="middle" font-size="17" font-family="Arial, Helvetica, sans-serif" fill="#9a3412">orange Grenze = eigentliche Box</text>
+
+  <rect x="270" y="275" width="460" height="120" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/>
+  <text x="500" y="307" text-anchor="middle" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#1d4ed8">Padding-Bereich</text>
+  <text x="500" y="333" text-anchor="middle" font-size="16" font-family="Arial, Helvetica, sans-serif" fill="#1d4ed8">Abstand innerhalb des Containers</text>
+
+  <rect x="385" y="300" width="230" height="70" rx="16" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <text x="500" y="343" text-anchor="middle" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">Child / Text</text>
+
+  <line x1="60" y1="340" x2="180" y2="340" stroke="#0f172a" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="120" y="326" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">margin</text>
+  <text x="120" y="364" text-anchor="middle" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#334155">außen</text>
+
+  <line x1="820" y1="340" x2="940" y2="340" stroke="#0f172a" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="880" y="326" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">margin</text>
+  <text x="880" y="364" text-anchor="middle" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#334155">außen</text>
+
+  <line x1="225" y1="120" x2="225" y2="185" stroke="#0f172a" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="238" y="158" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">margin</text>
+
+  <line x1="180" y1="430" x2="270" y2="430" stroke="#2563eb" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="225" y="417" text-anchor="middle" font-size="19" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#1d4ed8">padding</text>
+  <text x="225" y="450" text-anchor="middle" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#1d4ed8">innen</text>
+
+  <line x1="730" y1="430" x2="820" y2="430" stroke="#2563eb" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="775" y="417" text-anchor="middle" font-size="19" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#1d4ed8">padding</text>
+  <text x="775" y="450" text-anchor="middle" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#1d4ed8">innen</text>
+
+  <rect x="70" y="525" width="860" height="45" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="500" y="553" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Merksatz: margin bewegt die Box von außen, padding schafft Luft für den Inhalt innen.</text>
+</svg>

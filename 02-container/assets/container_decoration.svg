@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
+  <title id="title">Container Decoration</title>
+  <desc id="desc">Visualisierung von BoxDecoration mit color, borderRadius und boxShadow.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#0f172a"/></marker></defs>
+  <rect width="1000" height="540" fill="#f8fafc"/>
+  <text x="60" y="60" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">Container mit decoration: Farbe, runde Ecken und Schatten</text>
+  <rect x="255" y="175" width="500" height="220" rx="34" fill="#64748b" opacity="0.28"/>
+  <rect x="230" y="150" width="500" height="220" rx="34" fill="#7c3aed" stroke="#5b21b6" stroke-width="5"/>
+  <text x="480" y="270" text-anchor="middle" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff">Container</text>
+  <text x="480" y="305" text-anchor="middle" font-size="19" font-family="Arial, Helvetica, sans-serif" fill="#ede9fe">decoration: BoxDecoration(...)</text>
+
+  <line x1="150" y1="95" x2="255" y2="155" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="70" y="92" font-size="21" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">borderRadius</text>
+  <text x="70" y="118" font-size="16" font-family="Arial, Helvetica, sans-serif" fill="#334155">macht die Ecken rund</text>
+
+  <line x1="805" y1="205" x2="734" y2="205" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="820" y="200" font-size="21" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">color</text>
+  <text x="820" y="226" font-size="16" font-family="Arial, Helvetica, sans-serif" fill="#334155">Farbe der Box</text>
+
+  <line x1="815" y1="330" x2="750" y2="350" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="820" y="324" font-size="21" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0f172a">boxShadow</text>
+  <text x="820" y="350" font-size="16" font-family="Arial, Helvetica, sans-serif" fill="#334155">Schatten hinter der Box</text>
+
+  <rect x="70" y="430" width="860" height="48" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="500" y="460" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Wenn du runde Ecken oder Schatten willst, gehört die Farbe meist in BoxDecoration.</text>
+</svg>
