@@ -1,90 +1,12 @@
 # Visual Summary - 01 Widgets und MaterialApp
 
-> Ziel: Du erkennst Flutter UI als Baum aus Widgets.
+> Ab hier nutzen wir echte SVG-Grafiken für visuelle Konzepte. Die Grafik soll zuerst das Bild im Kopf bauen, danach kommt Code.
 
----
+<img src="./assets/widget_tree.svg" alt="Widget-Baum mit MaterialApp, Scaffold, AppBar und Body" width="980">
 
-## 1. Widget-Baum
+## So liest du die Grafik
 
-```mermaid
-flowchart TD
-    A[MaterialApp] --> B[Scaffold]
-    B --> C[AppBar]
-    B --> D[body]
-    D --> E[Center]
-    E --> F[Text]
-```
-
----
-
-## 2. Dieselbe Struktur als Box
-
-```text
-+------------------------------------------------+
-| MaterialApp                                    |
-|  +------------------------------------------+  |
-|  | Scaffold                                 |  |
-|  |  +------------------------------------+  |  |
-|  |  | AppBar                             |  |  |
-|  |  +------------------------------------+  |  |
-|  |  | body                               |  |  |
-|  |  |        +----------------+          |  |  |
-|  |  |        | Center         |          |  |  |
-|  |  |        |  +----------+  |          |  |  |
-|  |  |        |  | Text     |  |          |  |  |
-|  |  |        |  +----------+  |          |  |  |
-|  |  |        +----------------+          |  |  |
-|  |  +------------------------------------+  |  |
-|  +------------------------------------------+  |
-+------------------------------------------------+
-```
-
----
-
-## 3. Widget liest man von außen nach innen
-
-```dart
-Center(
-  child: Text('Hi'),
-)
-```
-
-```text
-Center sagt: Mein Kind soll zentriert werden.
-Text sagt: Ich zeige Hi an.
-```
-
----
-
-## 4. child vs children
-
-```text
-child:
-+---------+
-| Parent  |
-|   |     |
-|   v     |
-| Child   |
-+---------+
-```
-
-```text
-children:
-+---------+
-| Parent  |
-| ├ Kind  |
-| ├ Kind  |
-| └ Kind  |
-+---------+
-```
-
----
-
-## 5. Was du behalten musst
-
-| Konzept | Essenz |
-|---|---|
-| Widget | Baustein der UI |
-| Widget-Baum | Widgets sind verschachtelt |
-| `child` | ein Kind |
-| `children` | mehrere Kinder |
+- Widgets sind ineinander verschachtelte Boxen.
+- `MaterialApp` liegt außen.
+- `Scaffold` baut die Seite.
+- `body` enthält den eigentlichen Inhalt.

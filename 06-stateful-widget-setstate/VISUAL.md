@@ -1,89 +1,12 @@
 # Visual Summary - 06 StatefulWidget und setState
 
-> Ziel: Du verstehst, wie sich UI verändert.
+> Ab hier nutzen wir echte SVG-Grafiken für visuelle Konzepte. Die Grafik soll zuerst das Bild im Kopf bauen, danach kommt Code.
 
----
+<img src="./assets/state_setstate.svg" alt="setState Ablauf" width="980">
 
-## 1. Stateless vs Stateful
+## So liest du die Grafik
 
-```text
-StatelessWidget
-+-----------------------------+
-| Daten ändern sich nicht     |
-| Beispiel: Logo, Überschrift |
-+-----------------------------+
-
-StatefulWidget
-+-----------------------------+
-| Daten können sich ändern    |
-| Beispiel: Counter, Toggle   |
-+-----------------------------+
-```
-
----
-
-## 2. setState Ablauf
-
-```mermaid
-flowchart TD
-    A[User klickt] --> B[Funktion läuft]
-    B --> C[Variable wird geändert]
-    C --> D[setState]
-    D --> E[build läuft erneut]
-    E --> F[neue UI wird angezeigt]
-```
-
----
-
-## 3. Counter im Kopf
-
-```text
-Vor Klick:
-counter = 0
-UI: Counter: 0
-
-Klick:
-setState -> counter++
-
-Nach Klick:
-counter = 1
-UI: Counter: 1
-```
-
----
-
-## 4. StatefulWidget besteht aus zwei Teilen
-
-```text
-+---------------------------+
-| StatefulWidget            |
-| erstellt State            |
-+-------------+-------------+
-              |
-              v
-+---------------------------+
-| State                     |
-| speichert Werte           |
-| enthält build + setState  |
-+---------------------------+
-```
-
----
-
-## 5. Ohne setState
-
-```text
-Variable wird geändert
-        |
-        v
-Flutter merkt es nicht sicher
-        |
-        v
-UI bleibt gleich
-```
-
----
-
-## 6. Was du behalten musst
-
-> Wenn eine Änderung sichtbar werden soll, muss sie in `setState` passieren oder eine andere State-Lösung nutzen.
+- User-Aktion verändert eine Variable.
+- `setState` meldet Flutter die Änderung.
+- `build()` läuft erneut.
+- Die UI zeigt den neuen Wert.

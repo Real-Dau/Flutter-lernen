@@ -1,71 +1,18 @@
 # Visual Summary - 03 Row und Column
 
----
+> `Row`, `Column` und `Expanded` sind Layout-Werkzeuge. Die Richtung und die Platzverteilung sieht man am besten als Grafik.
 
-## Row
+## 1. Row und Column
 
-```text
-Row = horizontal
+<img src="./assets/row_column_axes.svg" alt="Row und Column mit Main Axis" width="980">
 
-+----------+----------+----------+
-| Kind 1   | Kind 2   | Kind 3   |
-+----------+----------+----------+
-```
+## 2. Expanded und flex
 
-```mermaid
-flowchart LR
-    A[Kind 1] --> B[Kind 2]
-    B --> C[Kind 3]
-```
+<img src="./assets/expanded_flex.svg" alt="Expanded verteilt Platz mit flex 1 2 1" width="980">
 
----
+## Merksatz
 
-## Column
-
-```text
-Column = vertikal
-
-+----------+
-| Kind 1   |
-+----------+
-| Kind 2   |
-+----------+
-| Kind 3   |
-+----------+
-```
-
-```mermaid
-flowchart TD
-    A[Kind 1] --> B[Kind 2]
-    B --> C[Kind 3]
-```
-
----
-
-## Main Axis und Cross Axis
-
-```text
-Row:
-mainAxis  ----------->
-crossAxis |
-          v
-
-Column:
-mainAxis  |
-          v
-crossAxis ----------->
-```
-
----
-
-## Expanded
-
-```text
-Row mit flex: 1 / 2 / 1
-
-+----------+--------------------+----------+
-|   1x     |        2x          |   1x     |
-+----------+--------------------+----------+
-```
-
-`Expanded` sagt: Nimm freien Platz. Mit `flex` sagst du, wie viel im Vergleich zu den anderen.
+- `Row` stapelt horizontal.
+- `Column` stapelt vertikal.
+- `Expanded` verteilt freien Platz.
+- `flex` bestimmt das Verhältnis.
