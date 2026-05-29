@@ -1,8 +1,20 @@
 # Visual Summary - 09 Navigation
 
-## Navigator Stack
+> Ziel: Du verstehst Seitenwechsel als Stack.
 
-Navigation funktioniert wie ein Stapel Karten.
+---
+
+## 1. Eine Seite ist ein Widget
+
+```text
+HomeScreen = Widget
+SettingsScreen = Widget
+DetailScreen = Widget
+```
+
+---
+
+## 2. Navigator Stack
 
 ```text
 Start:
@@ -10,37 +22,58 @@ Start:
 | HomeScreen   |
 +--------------+
 
-Nach Navigator.push:
+Nach push Detail:
 +--------------+
 | DetailScreen |
 +--------------+
 | HomeScreen   |
 +--------------+
 
-Nach Zurück:
+Nach pop / Zurück:
 +--------------+
 | HomeScreen   |
 +--------------+
 ```
 
-## Ablauf
+---
+
+## 3. Push Ablauf
 
 ```mermaid
 flowchart TD
     A[Button klicken] --> B[Navigator.push]
-    B --> C[MaterialPageRoute]
-    C --> D[DetailScreen wird gebaut]
-    D --> E[neue Seite sichtbar]
+    B --> C[Route erstellen]
+    C --> D[neuen Screen bauen]
+    D --> E[Screen oben auf Stack legen]
 ```
 
-## Named Routes
+---
+
+## 4. Named Routes
+
+```text
+Routen-Tabelle
++-------------+----------------+
+| Name        | Screen         |
++-------------+----------------+
+| /           | HomeScreen     |
+| /settings   | SettingsScreen |
++-------------+----------------+
+```
 
 ```mermaid
 flowchart LR
-    A['/'] --> B[HomeScreen]
-    C['/settings'] --> D[SettingsScreen]
+    A[pushNamed '/settings'] --> B[routes Map]
+    B --> C[SettingsScreen]
 ```
 
-## Merksatz
+---
 
-Eine Seite ist auch nur ein Widget. `Navigator` legt Seiten auf einen Stack.
+## 5. Was du behalten musst
+
+| Aktion | Bedeutung |
+|---|---|
+| `push` | neue Seite öffnen |
+| `pop` | zurückgehen |
+| `pushNamed` | über Routennamen öffnen |
+| `routes` | Tabelle aus Namen und Screens |

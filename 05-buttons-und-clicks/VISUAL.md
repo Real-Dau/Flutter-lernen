@@ -1,33 +1,65 @@
 # Visual Summary - 05 Buttons und Klicks
 
-## Klick-Ablauf
+> Ziel: Du verstehst, wie aus UI eine Aktion wird.
+
+---
+
+## 1. Button-Aufbau
+
+```text
++--------------------------------+
+| ElevatedButton                 |
+|                                |
+|  child: sichtbarer Inhalt      |
+|  onPressed: Klick-Logik        |
++--------------------------------+
+```
+
+---
+
+## 2. Klick-Ablauf
 
 ```mermaid
 flowchart TD
-    A[User tippt Button] --> B[onPressed wird ausgeführt]
-    B --> C[Code im Callback läuft]
-    C --> D[debugPrint oder andere Aktion]
+    A[User sieht Button] --> B[User klickt]
+    B --> C[onPressed wird ausgeführt]
+    C --> D[Code im Callback läuft]
+    D --> E[Konsole / Navigation / State]
 ```
 
-## Button als Box
+---
 
-```text
-+--------------------------+
-| ElevatedButton           |
-|                          |
-|   child: Text            |
-|   onPressed: Funktion    |
-+--------------------------+
-```
+## 3. Callback als gespeicherte Aktion
 
-## Callback-Idee
-
-```text
+```dart
 onPressed: () {
-  // passiert erst beim Klick
+  debugPrint('Klick');
 }
 ```
 
-## Merksatz
+```text
+() { ... }
+= Funktion ohne Namen
+= wird später ausgeführt
+= hier beim Klick
+```
 
-`onPressed` speichert Code, der später beim Klick ausgeführt wird.
+---
+
+## 4. Häufiger Unterschied
+
+```dart
+onPressed: sayHello      // richtig: Funktion wird übergeben
+onPressed: sayHello()    // oft falsch: Funktion wird sofort ausgeführt
+```
+
+---
+
+## 5. Was du behalten musst
+
+| Teil | Bedeutung |
+|---|---|
+| `child` | was man sieht |
+| `onPressed` | was beim Klick passiert |
+| `null` | Button deaktiviert |
+| `() {}` | anonyme Funktion |

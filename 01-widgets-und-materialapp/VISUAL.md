@@ -1,8 +1,10 @@
 # Visual Summary - 01 Widgets und MaterialApp
 
-## Widget-Baum
+> Ziel: Du erkennst Flutter UI als Baum aus Widgets.
 
-Flutter-Oberflächen sind verschachtelte Widgets.
+---
+
+## 1. Widget-Baum
 
 ```mermaid
 flowchart TD
@@ -13,7 +15,9 @@ flowchart TD
     E --> F[Text]
 ```
 
-## Als Box gedacht
+---
+
+## 2. Dieselbe Struktur als Box
 
 ```text
 +------------------------------------------------+
@@ -21,17 +25,66 @@ flowchart TD
 |  +------------------------------------------+  |
 |  | Scaffold                                 |  |
 |  |  +------------------------------------+  |  |
-|  |  | AppBar: Titel                      |  |  |
+|  |  | AppBar                             |  |  |
 |  |  +------------------------------------+  |  |
 |  |  | body                               |  |  |
 |  |  |        +----------------+          |  |  |
-|  |  |        | Text           |          |  |  |
+|  |  |        | Center         |          |  |  |
+|  |  |        |  +----------+  |          |  |  |
+|  |  |        |  | Text     |  |          |  |  |
+|  |  |        |  +----------+  |          |  |  |
 |  |  |        +----------------+          |  |  |
 |  |  +------------------------------------+  |  |
 |  +------------------------------------------+  |
 +------------------------------------------------+
 ```
 
-## Wichtig
+---
 
-Ein Widget kann ein `child` haben oder mehrere `children`.
+## 3. Widget liest man von außen nach innen
+
+```dart
+Center(
+  child: Text('Hi'),
+)
+```
+
+```text
+Center sagt: Mein Kind soll zentriert werden.
+Text sagt: Ich zeige Hi an.
+```
+
+---
+
+## 4. child vs children
+
+```text
+child:
++---------+
+| Parent  |
+|   |     |
+|   v     |
+| Child   |
++---------+
+```
+
+```text
+children:
++---------+
+| Parent  |
+| ├ Kind  |
+| ├ Kind  |
+| └ Kind  |
++---------+
+```
+
+---
+
+## 5. Was du behalten musst
+
+| Konzept | Essenz |
+|---|---|
+| Widget | Baustein der UI |
+| Widget-Baum | Widgets sind verschachtelt |
+| `child` | ein Kind |
+| `children` | mehrere Kinder |

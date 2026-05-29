@@ -1,49 +1,81 @@
 # Visual Summary - 10 Zusammenhängende Mini-App
 
-Hier verbinden sich mehrere Konzepte zu einer kleinen To-do-App.
+> Ziel: Du siehst, wie einzelne Konzepte zu einer App werden.
 
-## Datenfluss
+---
+
+## 1. Die App als System
 
 ```mermaid
 flowchart TD
-    A[User schreibt Aufgabe] --> B[TextField]
-    B --> C[Controller speichert Text]
-    C --> D[Button oder Enter]
-    D --> E[addTodo]
-    E --> F[todos.add text]
-    F --> G[setState]
-    G --> H[ListView.builder zeigt neue Liste]
+    A[TextField] --> B[Controller]
+    B --> C[addTodo]
+    C --> D[todos Liste]
+    D --> E[setState]
+    E --> F[ListView.builder]
+    F --> G[ListTile pro Aufgabe]
+    G --> H[Delete Button]
+    H --> I[removeTodo]
+    I --> D
 ```
 
-## App-Aufbau
+---
+
+## 2. App-Aufbau als Box
 
 ```text
 Scaffold
-+-----------------------------------+
-| AppBar: Mini To-do App            |
-+-----------------------------------+
-| TextField                         |
-| Button: Hinzufügen                |
-|                                   |
-| Expanded                          |
-|  +-----------------------------+  |
-|  | ListView.builder            |  |
-|  |  - Aufgabe 1    [delete]    |  |
-|  |  - Aufgabe 2    [delete]    |  |
-|  +-----------------------------+  |
-+-----------------------------------+
++---------------------------------------+
+| AppBar                                |
++---------------------------------------+
+| Padding                               |
+|  +---------------------------------+  |
+|  | TextField                       |  |
+|  +---------------------------------+  |
+|  | Button                          |  |
+|  +---------------------------------+  |
+|  | Expanded                        |  |
+|  |  +---------------------------+  |  |
+|  |  | ListView.builder          |  |  |
+|  |  | - Aufgabe 1   [delete]    |  |  |
+|  |  | - Aufgabe 2   [delete]    |  |  |
+|  |  +---------------------------+  |  |
+|  +---------------------------------+  |
++---------------------------------------+
 ```
 
-## Funktionen
+---
 
-```mermaid
-flowchart LR
-    A[addTodo] --> B[Text prüfen]
-    B --> C[in Liste speichern]
-    C --> D[TextField leeren]
-    E[removeTodo] --> F[Eintrag per index löschen]
+## 3. addTodo Schritt für Schritt
+
+```text
+1. Text aus Controller lesen
+2. Leerzeichen entfernen: trim()
+3. Wenn leer: abbrechen
+4. setState starten
+5. Text in todos speichern
+6. TextField leeren
+7. UI baut Liste neu
 ```
 
-## Merksatz
+---
 
-Eine App entsteht, wenn Widgets, State, Eingaben und Listen zusammenarbeiten.
+## 4. removeTodo Schritt für Schritt
+
+```text
+1. Delete Button kennt index
+2. removeTodo(index)
+3. setState
+4. todos.removeAt(index)
+5. ListView wird neu gebaut
+```
+
+---
+
+## 5. Was du behalten musst
+
+Eine App ist oft nur ein Kreislauf:
+
+```text
+User Aktion -> Daten ändern -> setState -> UI neu bauen
+```

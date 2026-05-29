@@ -1,47 +1,75 @@
 # Visual Summary - 07 Inputs und TextField
 
-## TextField mit Controller
+> Ziel: Du verstehst, wie Text vom User in deine App kommt.
+
+---
+
+## 1. TextField Grundidee
+
+```text
++------------------------------------+
+| TextField                          |
+| User tippt hier Text ein           |
++------------------------------------+
+```
+
+---
+
+## 2. Mit Controller
 
 ```mermaid
 flowchart LR
-    A[User tippt Text] --> B[TextField]
-    B --> C[TextEditingController]
+    A[User tippt] --> B[TextField]
+    B <--> C[TextEditingController]
     C --> D[controller.text]
-    D --> E[Button liest Text aus]
-    E --> F[setState aktualisiert UI]
+    D --> E[Button liest Wert]
+    E --> F[UI zeigt Ergebnis]
 ```
 
-## Skizze
+---
+
+## 3. Ohne Controller: onChanged
+
+```mermaid
+flowchart LR
+    A[User tippt Zeichen] --> B[onChanged wird ausgeführt]
+    B --> C[State aktualisieren]
+    C --> D[UI zeigt Live-Wert]
+```
+
+---
+
+## 4. Controller als Fernbedienung
 
 ```text
-+----------------------------------+
-| TextField                        |
-| Eingabe: Real                    |
-+----------------------------------+
-              |
-              v
-+----------------------------------+
-| controller.text == "Real"        |
-+----------------------------------+
-              |
-              v
-+----------------------------------+
-| Text("Hallo Real!")             |
-+----------------------------------+
+TextEditingController
+├── Text lesen: controller.text
+├── Text ändern: controller.text = 'Hi'
+├── Text leeren: controller.clear()
+└── aufräumen: controller.dispose()
 ```
 
-## dispose
+---
+
+## 5. Warum dispose?
 
 ```text
-Widget weg vom Bildschirm
+Widget wird entfernt
         |
         v
-dispose() wird aufgerufen
+Controller wird nicht mehr gebraucht
         |
         v
-controller.dispose()
+dispose() räumt auf
 ```
 
-## Merksatz
+---
 
-Der Controller ist wie eine Fernbedienung für das TextField: Du kannst den Text lesen, ändern oder leeren.
+## 6. Was du behalten musst
+
+| Situation | Gute Lösung |
+|---|---|
+| Text später per Button auslesen | Controller |
+| bei jedem Zeichen reagieren | `onChanged` |
+| TextField nach Speichern leeren | `controller.clear()` |
+| Controller benutzt | später `dispose()` |

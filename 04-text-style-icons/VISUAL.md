@@ -1,34 +1,71 @@
 # Visual Summary - 04 Text, Style und Icons
 
-## TextStyle wirkt auf Text
+> Ziel: Du verstehst, wie Flutter UI lesbarer und erkennbarer wird.
 
-```mermaid
-flowchart TD
-    A[Text Widget] --> B[TextStyle]
-    B --> C[fontSize]
-    B --> D[fontWeight]
-    B --> E[color]
-```
+---
 
-## Vorher / Nachher
+## 1. Text ohne Style vs mit Style
 
 ```text
 Ohne Style:
-Hallo
++----------------+
+| Hallo          |
++----------------+
 
 Mit Style:
-HALLO   größer, fett, farbig
++------------------------------+
+| HALLO   groß / fett / farbig |
++------------------------------+
 ```
 
-## Icon plus Text
+---
+
+## 2. TextStyle hängt am Text
+
+```mermaid
+flowchart TD
+    A[Text] --> B[style]
+    B --> C[TextStyle]
+    C --> D[fontSize]
+    C --> E[fontWeight]
+    C --> F[color]
+```
+
+---
+
+## 3. Icon ist auch ein Widget
 
 ```text
 Row
-+------------+------------------------+
-| Icon ❤️    | Flutter macht Spaß     |
-+------------+------------------------+
++-----------+------------+---------------------+
+| Icon      | Abstand    | Text                |
++-----------+------------+---------------------+
 ```
 
-## Merksatz
+```dart
+Row(
+  children: [
+    Icon(Icons.favorite),
+    SizedBox(width: 12),
+    Text('Like'),
+  ],
+)
+```
 
-`TextStyle` verändert, wie Text aussieht. `Icon` ist ein eigenes Widget und kann wie Text in Row/Column benutzt werden.
+---
+
+## 4. Wann benutze ich was?
+
+| Ziel | Widget / Property |
+|---|---|
+| Text anzeigen | `Text` |
+| Text größer machen | `fontSize` |
+| Text fett machen | `fontWeight` |
+| Symbol anzeigen | `Icon` |
+| Abstand zwischen Icon und Text | `SizedBox` |
+
+---
+
+## 5. Was du behalten musst
+
+`TextStyle` verändert den Text. `Icon` ist ein normales Widget und kann überall stehen, wo auch andere Widgets stehen.

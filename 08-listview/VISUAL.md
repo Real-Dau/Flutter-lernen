@@ -1,46 +1,84 @@
 # Visual Summary - 08 ListView
 
-## ListView als Scroll-Liste
+> Ziel: Du verstehst, wie Listen aus Daten entstehen.
+
+---
+
+## 1. ListView als scrollbare Column
 
 ```text
 Bildschirm
 +----------------------------+
-| ListTile 1                 |
+| Eintrag 1                  |
 +----------------------------+
-| ListTile 2                 |
+| Eintrag 2                  |
 +----------------------------+
-| ListTile 3                 |
+| Eintrag 3                  |
 +----------------------------+
-| ListTile 4                 |
+| Eintrag 4                  |
 +----------------------------+
-| ... scrollt weiter         |
+| ...                        |
 +----------------------------+
 ```
 
-## ListView.builder
+---
+
+## 2. Datenliste wird UI-Liste
 
 ```mermaid
-flowchart TD
-    A[Liste mit Daten] --> B[itemCount]
-    B --> C[itemBuilder]
-    C --> D[index 0]
-    C --> E[index 1]
-    C --> F[index 2]
-    D --> G[ListTile]
-    E --> H[ListTile]
-    F --> I[ListTile]
+flowchart LR
+    A[Liste: names] --> B[index 0]
+    A --> C[index 1]
+    A --> D[index 2]
+    B --> E[ListTile Ada]
+    C --> F[ListTile Linus]
+    D --> G[ListTile Grace]
 ```
 
-## Index-Idee
+---
+
+## 3. builder Prinzip
+
+```text
+ListView.builder fragt:
+
+Wie viele? -> itemCount
+Wie baue ich jeden Eintrag? -> itemBuilder
+Welcher Eintrag? -> index
+```
+
+---
+
+## 4. Index visuell
 
 ```text
 names = ['Ada', 'Linus', 'Grace']
 
-index 0 -> Ada
-index 1 -> Linus
-index 2 -> Grace
++-------+---------+
+| index | value   |
++-------+---------+
+| 0     | Ada     |
+| 1     | Linus   |
+| 2     | Grace   |
++-------+---------+
 ```
 
-## Merksatz
+---
 
-`ListView.builder` baut Listeneinträge erst dann, wenn sie gebraucht werden.
+## 5. ListView in Column
+
+```text
+Column
+├── Suchfeld
+├── Button
+└── Expanded
+    └── ListView.builder
+```
+
+Ohne `Expanded` weiß die Liste manchmal nicht, wie hoch sie sein darf.
+
+---
+
+## 6. Was du behalten musst
+
+`ListView.builder` ist der Standard, wenn UI aus einer Datenliste gebaut wird.

@@ -1,37 +1,70 @@
 # Visual Summary - 00 Start hier
 
-Diese Datei erklärt die Lektion als Bild im Kopf.
+> Ziel: Du verstehst, wie Flutter überhaupt losläuft.
 
-## Startfluss einer Flutter-App
+---
+
+## 1. Startfluss einer Flutter-App
 
 ```mermaid
 flowchart TD
-    A[main()] --> B[runApp(...)]
-    B --> C[MyApp Widget]
-    C --> D[MaterialApp]
-    D --> E[Scaffold]
-    E --> F[body]
-    F --> G[Center]
-    G --> H[Text]
+    A[Dart startet Programm] --> B[main]
+    B --> C[runApp]
+    C --> D[MyApp]
+    D --> E[build]
+    E --> F[Widget-Baum]
+    F --> G[UI auf dem Bildschirm]
 ```
 
-## Was passiert?
+---
+
+## 2. Als Treppe gedacht
 
 ```text
-Dein Code startet hier:
-
-main()
-  |
-  v
-runApp(MyApp())
-  |
-  v
-Flutter baut den Widget-Baum
-  |
-  v
-Du siehst UI auf dem Bildschirm
+1. Betriebssystem startet App
+        |
+        v
+2. Dart ruft main() auf
+        |
+        v
+3. runApp(MyApp()) startet Flutter UI
+        |
+        v
+4. Flutter fragt: Was soll ich bauen?
+        |
+        v
+5. build() gibt Widgets zurück
 ```
 
-## Mini-Merksatz
+---
 
-`main()` startet Dart. `runApp(...)` startet die Flutter-Oberfläche.
+## 3. Wo landet dein Code?
+
+```text
+sandbox_app/
+└── lib/
+    └── main.dart   <- hier kopierst du Snippets rein
+```
+
+---
+
+## 4. Hot Reload mental
+
+```mermaid
+flowchart LR
+    A[Code ändern] --> B[Speichern]
+    B --> C[Hot Reload]
+    C --> D[Flutter baut UI teilweise neu]
+    D --> E[Änderung sichtbar]
+```
+
+---
+
+## 5. Was du behalten musst
+
+| Sache | Merksatz |
+|---|---|
+| `main()` | hier beginnt das Programm |
+| `runApp()` | hier beginnt die Flutter-Oberfläche |
+| `build()` | beschreibt, wie die UI aussieht |
+| Hot Reload | schnell testen, ohne komplett neu zu starten |
