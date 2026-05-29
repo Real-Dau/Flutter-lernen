@@ -1,45 +1,64 @@
 # Visual Summary - 03 Row und Column
 
-## Column: untereinander
+---
+
+## Row
 
 ```text
-Column
-  |
-  +-- Text 1
-  |
-  +-- SizedBox height: 12
-  |
-  +-- Text 2
-  |
-  +-- SizedBox height: 12
-  |
-  +-- Text 3
-```
+Row = horizontal
 
-```mermaid
-flowchart TD
-    A[Column] --> B[Widget 1]
-    A --> C[Widget 2]
-    A --> D[Widget 3]
-```
-
-## Row: nebeneinander
-
-```text
-Row
-  +----------+----------+----------+
-  | Icon     | Text     | Icon     |
-  +----------+----------+----------+
++----------+----------+----------+
+| Kind 1   | Kind 2   | Kind 3   |
++----------+----------+----------+
 ```
 
 ```mermaid
 flowchart LR
-    A[Row] --> B[Widget 1]
-    A --> C[Widget 2]
-    A --> D[Widget 3]
+    A[Kind 1] --> B[Kind 2]
+    B --> C[Kind 3]
 ```
 
-## Expanded: freier Platz wird verteilt
+---
+
+## Column
+
+```text
+Column = vertikal
+
++----------+
+| Kind 1   |
++----------+
+| Kind 2   |
++----------+
+| Kind 3   |
++----------+
+```
+
+```mermaid
+flowchart TD
+    A[Kind 1] --> B[Kind 2]
+    B --> C[Kind 3]
+```
+
+---
+
+## Main Axis und Cross Axis
+
+```text
+Row:
+mainAxis  ----------->
+crossAxis |
+          v
+
+Column:
+mainAxis  |
+          v
+crossAxis ----------->
+```
+
+---
+
+## Expanded
 
 ```text
 Row mit flex: 1 / 2 / 1
@@ -49,6 +68,4 @@ Row mit flex: 1 / 2 / 1
 +----------+--------------------+----------+
 ```
 
-## Merksatz
-
-`Column` stapelt vertikal. `Row` stapelt horizontal. `Expanded` teilt freien Platz auf.
+`Expanded` sagt: Nimm freien Platz. Mit `flex` sagst du, wie viel im Vergleich zu den anderen.

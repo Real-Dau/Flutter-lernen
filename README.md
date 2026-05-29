@@ -1,17 +1,84 @@
 # Flutter lernen
 
-Willkommen in diesem Repo. Ziel: Wir lernen Flutter **von 0** und arbeiten uns Schritt für Schritt Richtung **100% Verständnis** vor.
+> Eine Flutter-Lernreise von **0** bis zu sauberem App-Code — mit vielen kleinen Snippets, visuellen Markdown-Erklärungen und später zusammenhängenden Projekten.
 
-Die Idee:
+![Status](https://img.shields.io/badge/status-im%20Aufbau-blue)
+![Level](https://img.shields.io/badge/level-Anfänger%20bis%20Fortgeschritten-green)
+![Sprache](https://img.shields.io/badge/sprache-Deutsch-orange)
 
-- Jede Lektion hat einen nummerierten Ordner, zum Beispiel `02-container`.
-- In jeder Lektion gibt es kurze Erklärungen und viele kleine Code-Schnipsel.
-- Was in einer früheren Lektion erklärt wurde, wird später vorausgesetzt.
-- Später kommen zusammenhängende Mini-Apps und danach fortgeschrittene Dart-/Flutter-Syntax wie `=>`, `:`, `?`, `??`, `...`, Cascades und Builder-Tricks.
+---
 
-## So benutzt du das Repo
+## 🎯 Ziel des Repos
 
-1. Installiere Flutter und erstelle lokal eine Test-App:
+Dieses Repo soll nicht nur Code zeigen, sondern erklären, **warum** der Code funktioniert.
+
+Wir lernen Flutter so:
+
+```mermaid
+flowchart LR
+    A[0 verstehen] --> B[kleine Snippets]
+    B --> C[visuelle Erklärungen]
+    C --> D[kombinieren]
+    D --> E[Mini-Apps]
+    E --> F[fortgeschrittene Syntax]
+```
+
+---
+
+## 🧠 Lernregel
+
+Was in einer früheren Lektion erklärt wurde, wird später vorausgesetzt.
+
+Beispiel:
+
+- In Lektion `01` wird `MaterialApp` erklärt.
+- In Lektion `02` wird es benutzt, aber nicht nochmal von 0 erklärt.
+- Wenn ein neuer Zusammenhang entsteht, wird er trotzdem kurz erklärt.
+
+So wächst das Wissen Schritt für Schritt.
+
+---
+
+## 📁 Aufbau
+
+| Lektion | Thema | Ziel |
+|---:|---|---|
+| `00-start-hier` | App starten | verstehen, wo Flutter-Code beginnt |
+| `01-widgets-und-materialapp` | Widgets | Widget-Baum und App-Grundgerüst |
+| `02-container` | Container | Größe, Farbe, Margin, Padding, Decoration |
+| `03-row-column` | Layout | horizontal und vertikal anordnen |
+| `04-text-style-icons` | Darstellung | Text schöner machen, Icons nutzen |
+| `05-buttons-und-clicks` | Interaktion | Klicks auslösen |
+| `06-stateful-widget-setstate` | State | Werte ändern und UI neu bauen |
+| `07-inputs-textfield` | Eingaben | User-Text lesen |
+| `08-listview` | Listen | viele Elemente anzeigen |
+| `09-navigation` | Seitenwechsel | Screens öffnen und zurückgehen |
+| `10-zusammenhaengende-mini-app` | Mini-App | Wissen kombinieren |
+| `11-dart-syntax-tricks` | Syntax Tricks | `=>`, `??`, `...`, `:` verstehen |
+
+---
+
+## 📌 Jede Lektion enthält
+
+```text
+LEKTION/
+├── README.md      -> Erklärung, Essenz, Aufgaben
+├── VISUAL.md      -> Diagramme, Skizzen, mentale Modelle
+└── snippets/      -> kopierbarer Code
+```
+
+Bei späteren Projekten:
+
+```text
+LEKTION/
+└── app/lib/main.dart -> zusammenhängender Flutter-Code
+```
+
+---
+
+## 🚀 So testest du Snippets
+
+Erstelle einmal lokal eine Flutter-Test-App:
 
 ```bash
 flutter create sandbox_app
@@ -19,50 +86,57 @@ cd sandbox_app
 flutter run
 ```
 
-2. Öffne `lib/main.dart` in deiner Test-App.
-3. Kopiere Code aus einer Lektion hinein.
-4. Starte die App neu oder nutze Hot Reload.
+Dann:
 
-## Aktuelle Struktur
+1. Öffne `lib/main.dart`.
+2. Kopiere ein Snippet aus einer Lektion hinein.
+3. Speichere.
+4. Nutze Hot Reload.
+5. Ändere Werte und beobachte, was passiert.
 
-```text
-00-start-hier/
-01-widgets-und-materialapp/
-02-container/
-03-row-column/
-04-text-style-icons/
-05-buttons-und-clicks/
-06-stateful-widget-setstate/
-07-inputs-textfield/
-08-listview/
-09-navigation/
-10-zusammenhaengende-mini-app/
-11-dart-syntax-tricks/
+---
+
+## 🧪 Wie du richtig übst
+
+Nicht nur lesen. Immer ändern.
+
+| Aktion | Warum? |
+|---|---|
+| Farben ändern | du verstehst Properties |
+| Zahlen ändern | du siehst Größen und Abstände |
+| Widgets verschachteln | du verstehst den Widget-Baum |
+| Fehler absichtlich machen | du lernst Fehlermeldungen lesen |
+| Snippets kombinieren | du kommst Richtung echte App |
+
+---
+
+## 🗺️ Großer Lernpfad
+
+```mermaid
+flowchart TD
+    A[Widgets] --> B[Layout]
+    B --> C[Style]
+    C --> D[Buttons]
+    D --> E[State]
+    E --> F[Inputs]
+    F --> G[Listen]
+    G --> H[Navigation]
+    H --> I[Mini-App]
+    I --> J[Syntax Tricks]
+    J --> K[größere Projekte]
 ```
 
-## Lernregel
+---
 
-Ab Lektion 03 wird zum Beispiel nicht mehr jedes Mal erklärt, was `MaterialApp`, `Scaffold` oder `Text` ist. Das wurde vorher behandelt und gilt dann als bekannt.
+## 🔥 Spätere Themen
 
-## Empfohlener Ablauf
-
-Gehe nicht zu schnell durch die Ordner. Kopiere jeden Schnipsel, ändere Werte und beobachte, was passiert. Flutter lernt man am besten, indem man kleine Dinge verändert:
-
-- Farben ändern
-- Größen ändern
-- Texte austauschen
-- Widgets verschachteln
-- Fehler absichtlich machen und lesen
-
-## Nächste Ausbaustufen
-
-Dieses Repo ist als wachsender Kurs gedacht. Nach den ersten Grundlagen folgen später:
-
-- Forms und Validierung
+- eigene Widgets sauber bauen
 - Themes
-- Assets und Bilder
-- Futures und async/await
+- Bilder und Assets
+- Forms und Validierung
+- async / await
 - APIs abrufen
 - State Management
-- eigene Widgets sauber strukturieren
-- größere Beispiel-App
+- Firebase / Supabase
+- größere App-Struktur
+- clean code in Flutter

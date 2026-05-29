@@ -1,25 +1,99 @@
 # 01 - Widgets und MaterialApp
 
-In Flutter ist fast alles ein Widget.
+> Flutter-Oberflächen bestehen aus Widgets. Widgets werden wie Bausteine ineinander gesteckt.
 
-Ein Widget beschreibt, was auf dem Bildschirm stehen soll. Widgets können andere Widgets enthalten. So entsteht ein Widget-Baum.
+---
 
-## Neue Begriffe
+## 🧠 Essenz
 
-- `MaterialApp`: Grundgerüst für eine App im Material-Design.
-- `Scaffold`: Typische Seitenstruktur mit Hintergrund, AppBar, Body usw.
-- `Center`: Zentriert ein Child-Widget.
-- `Text`: Zeigt Text an.
-- `child`: Ein einzelnes untergeordnetes Widget.
+In Flutter ist fast alles ein Widget:
 
-## Merksatz
+- Text ist ein Widget.
+- Abstand ist oft ein Widget.
+- Zentrierung ist ein Widget.
+- Eine ganze Seite ist ein Widget.
 
-Flutter baut Oberflächen durch Verschachtelung:
+---
+
+## 🧩 Mentales Modell
+
+```text
+Widget = Baustein für die Oberfläche
+
+Großes Widget
+  └── kleineres Widget
+        └── noch kleineres Widget
+```
+
+---
+
+## 🏗️ Grundstruktur
 
 ```dart
-Center(
-  child: Text('Hi'),
+MaterialApp(
+  home: Scaffold(
+    body: Center(
+      child: Text('Hi'),
+    ),
+  ),
 )
 ```
 
-Ab jetzt setzen wir voraus, dass du weißt: Widgets werden ineinander gesteckt.
+| Widget | Aufgabe |
+|---|---|
+| `MaterialApp` | App-Grundgerüst |
+| `Scaffold` | Seitenstruktur |
+| `body` | Hauptbereich der Seite |
+| `Center` | zentriert sein Child |
+| `Text` | zeigt Text an |
+
+---
+
+## 🔑 Wichtig: child vs children
+
+| Property | Bedeutung |
+|---|---|
+| `child` | genau ein Widget |
+| `children` | mehrere Widgets als Liste |
+
+Beispiel:
+
+```dart
+Center(
+  child: Text('ein Kind'),
+)
+```
+
+---
+
+## 🧭 Code-Landkarte
+
+| Datei | Thema |
+|---|---|
+| `01_text_scaffold.dart` | Text im Scaffold anzeigen |
+| `02_appbar_body.dart` | AppBar und Body verstehen |
+| `03_widget_tree.dart` | Verschachtelung lesen lernen |
+
+---
+
+## ⚠️ Typische Fehler
+
+| Fehler | Lösung |
+|---|---|
+| `child` mit mehreren Widgets benutzen | dafür später `children` nutzen |
+| zu viele Klammern unübersichtlich | Code automatisch formatieren |
+| `const` verwirrt | erstmal stehen lassen, später genauer verstehen |
+
+---
+
+## ✅ Mini-Aufgaben
+
+1. Ändere den AppBar-Titel.
+2. Ersetze `Center` durch `Padding`.
+3. Schreibe den Widget-Baum auf Papier.
+
+---
+
+## 👁️ Visuelle Erklärung
+
+Siehe: [`VISUAL.md`](./VISUAL.md)

@@ -1,23 +1,79 @@
 # 00 - Start hier
 
-Wir beginnen wirklich bei 0.
+> Erste Orientierung: Wo beginnt Flutter-Code und wie teste ich Snippets?
 
-## Ziel dieser Lektion
+---
 
-Du sollst verstehen:
+## 🧠 Essenz
 
-- Wo Code in einer Flutter-App landet.
-- Was `main()` grob macht.
-- Warum `runApp(...)` der Startpunkt für die Oberfläche ist.
-- Wie du Snippets aus diesem Repo testest.
+Eine Flutter-App startet bei `main()`.
 
-## Wichtig
+```dart
+void main() {
+  runApp(const MyApp());
+}
+```
 
-Du musst noch nicht jede Klammer perfekt verstehen. Erstmal geht es darum, Code zu sehen, zu starten und kleine Änderungen auszuprobieren.
+`main()` ist der Startpunkt. `runApp(...)` sagt Flutter: **Baue ab hier die Oberfläche.**
 
-## Mini-Aufgaben
+---
 
-1. Kopiere `snippets/01_minimal_app.dart` in `lib/main.dart` deiner Test-App.
-2. Ändere den Text.
-3. Ändere die Farbe.
-4. Nutze Hot Reload.
+## 🧩 Mentales Modell
+
+```text
+Dart startet
+   |
+   v
+main()
+   |
+   v
+runApp(...)
+   |
+   v
+Flutter zeichnet Widgets
+```
+
+---
+
+## 📌 Was du hier lernen sollst
+
+| Begriff | Bedeutung |
+|---|---|
+| `main()` | Startpunkt vom Dart-Programm |
+| `runApp()` | startet die Flutter-Oberfläche |
+| `MyApp` | unser erstes eigenes Widget |
+| Hot Reload | Änderungen schnell anzeigen |
+
+---
+
+## 🧭 Code-Landkarte
+
+| Datei | Übung |
+|---|---|
+| `snippets/01_minimal_app.dart` | kleinste sinnvolle Flutter-App |
+| `snippets/02_hot_reload_experiment.dart` | Text/Farbe ändern und Hot Reload testen |
+
+---
+
+## ⚠️ Typische Fehler
+
+| Fehler | Warum passiert es? |
+|---|---|
+| Klammer vergessen | Flutter-Code ist stark verschachtelt |
+| `runApp` gelöscht | dann startet keine UI |
+| Snippet nicht in `lib/main.dart` kopiert | Flutter startet standardmäßig diese Datei |
+
+---
+
+## ✅ Mini-Aufgaben
+
+1. Ändere den Text in `Text('Hallo Flutter!')`.
+2. Ändere `backgroundColor`.
+3. Füge einen anderen `fontSize` ein.
+4. Mache absichtlich eine Klammer kaputt und lies die Fehlermeldung.
+
+---
+
+## 👁️ Visuelle Erklärung
+
+Siehe: [`VISUAL.md`](./VISUAL.md)
